@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RR DECOR | The Counter Wala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Outfit:wght@300;600;900&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --bg: #050505;
+            --card: #111111;
+            --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: var(--bg); 
+            color: #fff; 
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- Animated Infinite Header --- */
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+        }
+
+        .svg-box {
+            width: 100%;
+            max-width: 700px;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.2));
+        }
+
+        #mainText {
+            font-family: 'Great Vibes', cursive;
+            font-size: 90px;
+            fill: rgba(212, 175, 55, 0); /* Start transparent */
+            stroke: var(--gold);
+            stroke-width: 0.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: fill 2s ease-in-out;
+        }
+
+        .sub-tagline {
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            font-weight: 300;
+            opacity: 0.5;
+            font-size: 0.75rem;
+            margin-top: -10px;
+            animation: fadeInOut 4s infinite ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+        /* --- Gallery System --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .section-title {
+            grid-column: span 2;
+            font-family: 'Cinzel Decorative';
+            color: var(--gold);
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .gallery-card img, .gallery-card video {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .full-width { grid-column: span 2; }
+
+        .label {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 25px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
+        }
+
+        .label h3 { font-family: 'Cinzel Decorative'; color: var(--gold); font-size: 1.2rem; }
+
+        /* --- Instagram & Dock --- */
+        .social-section { padding: 80px 20px; background: #080808; text-align: center; }
+        .social-grid { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 40px; }
+        
+        .insta-card { 
+            background: var(--card); 
+            border-radius: 20px; 
+            padding: 35px; 
+            width: 320px; 
+            text-decoration: none; 
+            color: white; 
+            border: 1px solid #1a1a1a;
+            transition: 0.4s;
+        }
+        .insta-card:hover { border-color: #bc1888; transform: scale(1.03); }
+
+        .dock {
+            position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
+            background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(15px);
+            padding: 14px 30px; border-radius: 100px; border: 1px solid var(--gold);
+            display: flex; gap: 25px; z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .dock-link { text-decoration: none; color: #fff; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+            .section-title, .full-width { grid-column: span 1; }
+            #mainText { font-size: 60px; }
+            .gallery-card img { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="svg-box">
+            <svg viewBox="0 0 600 150">
+                <text id="mainText" x="50%" y="80" text-anchor="middle">RR-Decor</text>
+            </svg>
+        </div>
+        <div class="sub-tagline">Gujarati Counter Wala IN Jharkhand NOW</div>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">🔥 Most Demanding Designs</h2>
+        
+        <div class="gallery-card full-width">
+            <img src="IMG20231127182726.jpg" alt="Most Demanding 1">
+            <div class="label"><h3>The Royal Signature Counter</h3></div>
+        </div>
+
+        <div class="gallery-card">
+            <img src="IMG20231127182751.jpg" alt="Most Demanding 2">
+            <div class="label"><h3>Premium LED Concept</h3></div>
+        </div>
+
+        <div class="gallery-card">
+            <video autoplay muted loop playsinline>
+                <source src="GA11jQK96mEBtTUBABCDU7UdgjtRbpR1AAAF_1.mp4" type="video/mp4">
+            </video>
+            <div class="label"><h3>Live Setup Preview</h3></div>
+        </div>
+
+        <h2 class="section-title">Our Masterpieces</h2>
+
+        <div class="gallery-card">
+            <img src="IMG_20210930_211854.jpg" alt="Design 1">
+        </div>
+
+        <div class="gallery-card">
+            <img src="IMG_20231126_131544.jpg" alt="Design 2">
+        </div>
+
+        <div class="gallery-card">
+            <img src="IMG_20231127_131200.jpg" alt="Design 3">
+        </div>
+
+        <div class="gallery-card">
+            <img src="IMG20210305135431.jpg" alt="Design 4">
+        </div>
+
+        <div class="gallery-card full-width">
+            <img src="IMG20210305135437.jpg" alt="Design 5">
+            <div class="label"><h3>Grand Banquet Setup</h3></div>
+        </div>
+    </div>
+
+    <section class="social-section">
+        <h2 style="font-family: 'Cinzel Decorative'; color: var(--gold); margin-bottom: 10px;">Connect With Us</h2>
+        <div class="social-grid">
+            <a href="https://instagram.com/rrdecor.in" target="_blank" class="insta-card">
+                <div style="font-size: 2rem; margin-bottom: 10px;">📸</div>
+                <h3>@rrdecor.in</h3>
+                <p>Official Designs & Portfolio</p>
+            </a>
+            <a href="https://instagram.com/_mr_raj_malhotra" target="_blank" class="insta-card">
+                <div style="font-size: 2rem; margin-bottom: 10px;">🤴</div>
+                <h3>@_mr_raj_malhotra</h3>
+                <p>Visionary & Founder</p>
+            </a>
+        </div>
+    </section>
+
+    <nav class="dock">
+        <a href="tel:8252441410" class="dock-link">📞 <span>Call</span></a>
+        <a href="https://wa.me/918252441410" class="dock-link">💬 <span>WhatsApp</span></a>
+        <a href="https://share.google/BZRsmgRTIXIldlgQJ" target="_blank" class="dock-link" style="color:var(--gold)">📍 <span>Location</span></a>
+    </nav>
+
+    <script>
+        const text = document.getElementById('mainText');
+        
+        // Measure text for stroke animation
+        const length = 1800; 
+        text.style.strokeDasharray = length;
+
+        function runAnimation() {
+            // 1. Reset: Transparent fill, offset start
+            text.style.transition = "none";
+            text.style.strokeDashoffset = length;
+            text.style.fill = "rgba(212, 175, 55, 0)";
+            
+            // Trigger reflow
+            text.getBoundingClientRect();
+
+            // 2. Draw: Slow stroke (4 seconds)
+            text.style.transition = "stroke-dashoffset 4s ease-in-out, fill 2s ease-in-out 3s";
+            text.style.strokeDashoffset = "0";
+            
+            // 3. Fill: Fade in gold at the end
+            setTimeout(() => {
+                text.style.fill = "rgba(212, 175, 55, 1)";
+            }, 500);
+
+            // 4. Fade Out: Prepare for loop
+            setTimeout(() => {
+                text.style.transition = "opacity 1.5s ease";
+                text.style.opacity = "0";
+            }, 6500);
+
+            // 5. Restart
+            setTimeout(() => {
+                text.style.opacity = "1";
+                runAnimation();
+            }, 8000);
+        }
+
+        // Start the infinite loop
+        runAnimation();
+    </script>
+</body>
+</html>
